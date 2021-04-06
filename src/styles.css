@@ -1,0 +1,86 @@
+.App {
+  margin: 5%;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  color: rgba(235, 186, 192, 0.747);
+  background-color: #080870;
+  opacity: 1;
+  background-image: linear-gradient(
+      30deg,
+      #6d73e0 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #6d73e0 87.5%,
+      #6d73e0
+    ),
+    linear-gradient(
+      150deg,
+      #6d73e0 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #6d73e0 87.5%,
+      #6d73e0
+    ),
+    linear-gradient(
+      30deg,
+      #6d73e0 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #6d73e0 87.5%,
+      #6d73e0
+    ),
+    linear-gradient(
+      150deg,
+      #6d73e0 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #6d73e0 87.5%,
+      #6d73e0
+    ),
+    linear-gradient(
+      60deg,
+      #6d73e077 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #6d73e077 75%,
+      #6d73e077
+    ),
+    linear-gradient(
+      60deg,
+      #6d73e077 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #6d73e077 75%,
+      #6d73e077
+    );
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+.page-content {
+  display: grid;
+  grid-gap: 0rem;
+  padding: 0rem;
+  max-width: 1500px;
+  margin: 1%;
+  font-family: var(--font-sans);
+}
+@media (min-width: 700px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .page-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1300px) {
+  .page-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
