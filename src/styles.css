@@ -1,8 +1,9 @@
 .App {
-  margin: 5%;
+  margin: 0%;
   font-family: sans-serif;
   text-align: center;
-  display: flex;
+  display: grid;
+  place-items: center;
   justify-content: center;
   align-items: center;
 }
@@ -63,9 +64,10 @@ body {
 }
 .page-content {
   display: grid;
+  place-items: center;
   grid-gap: 0rem;
   padding: 0rem;
-  max-width: 1500px;
+  /* max-width: 1500px; */
   margin: 1%;
   font-family: var(--font-sans);
 }

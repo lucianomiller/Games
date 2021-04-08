@@ -18,6 +18,7 @@ const options = {
 export default function App() {
   const [data, setData] = useState([]);
 
+  let history = useHistory();
   useEffect(() => {
     axios
       .request(options)
@@ -30,6 +31,7 @@ export default function App() {
       });
   }, []);
   const [searchVal, setSearchVal] = useState("");
+
   const search = (e) => {
     e.preventDefault();
     //console.log(searchVal);
@@ -41,6 +43,7 @@ export default function App() {
 
         //console.log(response.data);
       })
+      .then(() => history.push("/"))
       .then(() => setSearchVal(""));
   };
   return (
@@ -113,153 +116,65 @@ function Details() {
   }, []);
 
   return (
-    <div class="is-preload">
-      <header id="header">
-        <img src={data.background_image} alt="" />
-        <h1>
-          <strong>{data.name}</strong> <br />
-          <br />
-          <a href={data.website}>Oficial Page</a>.
-        </h1>
-        {/* <div class="inner">
-      <a href="#" class="image avatar"><img src={data.background_image} alt="" /></a>
-      <h1><strong>I am Strata</strong>, a super simple<br />
-      responsive site template freebie<br />
-      crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
-    </div> */}
-      </header>
-
-      <div id="main">
-        <section id="one">
-          <header class="major">
-            <h2>
-              Ipsum lorem dolor aliquam ante commodo
-              <br />
-              magna sed accumsan arcu neque.
-            </h2>
-          </header>
-          <p>{data.description_raw}</p>
-          <ul class="actions">
-            <li>
-              <a href="#" class="button">
-                Learn More
-              </a>
-            </li>
-          </ul>
-        </section>
-
-        <section id="two">
-          <h2>Recent Work</h2>
-          <div class="row">
-            <article class="col-6 col-12-xsmall work-item">
-              <a href="images/fulls/01.jpg" class="image fit thumb">
-                <img src="images/thumbs/01.jpg" alt="" />
-              </a>
-              <h3>Magna sed consequat tempus</h3>
-              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-            </article>
-            <article class="col-6 col-12-xsmall work-item">
-              <a href="images/fulls/02.jpg" class="image fit thumb">
-                <img src="images/thumbs/02.jpg" alt="" />
-              </a>
-              <h3>Ultricies lacinia interdum</h3>
-              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-            </article>
-            <article class="col-6 col-12-xsmall work-item">
-              <a href="images/fulls/03.jpg" class="image fit thumb">
-                <img src="images/thumbs/03.jpg" alt="" />
-              </a>
-              <h3>Tortor metus commodo</h3>
-              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-            </article>
-            <article class="col-6 col-12-xsmall work-item">
-              <a href="images/fulls/04.jpg" class="image fit thumb">
-                <img src="images/thumbs/04.jpg" alt="" />
-              </a>
-              <h3>Quam neque phasellus</h3>
-              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-            </article>
-            <article class="col-6 col-12-xsmall work-item">
-              <a href="images/fulls/05.jpg" class="image fit thumb">
-                <img src="images/thumbs/05.jpg" alt="" />
-              </a>
-              <h3>Nunc enim commodo aliquet</h3>
-              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-            </article>
-            <article class="col-6 col-12-xsmall work-item">
-              <a href="images/fulls/06.jpg" class="image fit thumb">
-                <img src="images/thumbs/06.jpg" alt="" />
-              </a>
-              <h3>Risus ornare lacinia</h3>
-              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-            </article>
-          </div>
-          <ul class="actions">
-            <li>
-              <a href="#" class="button">
-                Full Portfolio
-              </a>
-            </li>
-          </ul>
-        </section>
-
-        {/* <section id="three">
-        <h2>Get In Touch</h2>
-        <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
-        <div class="row">
-          <div class="col-8 col-12-small">
-            <form method="post" action="#">
-              <div class="row gtr-uniform gtr-50">
-                <div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-                <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-                <div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+    <section
+      className="u-clearfix u-palette-5-base u-valign-middle u-section-1"
+      id="carousel_3eaf"
+      style={{ height: "100%" }}
+    >
+      <div className="u-clearfix u-layout-wrap u-layout-wrap-1">
+        <div className="u-layout">
+          <div className="u-layout-row">
+            <div className="u-container-style u-layout-cell u-left-cell u-size-28-xl u-size-32-lg u-size-32-md u-size-32-sm u-size-32-xs u-white u-layout-cell-1">
+              <div className="u-container-layout u-valign-middle u-container-layout-1">
+                <h1 className="u-text u-text-1">
+                  {data.name}
+                  <span style={{ fontWeight: "700px" }}></span>
+                  <br />
+                </h1>
+                <p className="u-text u-text-2" style={{ fontWeight: "700px" }}>
+                  {data.description_raw}
+                  <a
+                    href="https://nicepage.com/c/industrial-website-templates"
+                    className="u-active-none u-border-1 u-border-black u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1"
+                  ></a>
+                </p>
+                <span className="u-icon u-icon-circle u-text-black u-icon-1">
+                  <svg
+                    className="u-svg-link"
+                    preserveAspectRatio="xMidYMin slice"
+                    viewBox="0 0 512 512"
+                  >
+                    {/* <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-6507">
+                    </use> */}
+                  </svg>
+                  <svg
+                    className="u-svg-content"
+                    viewBox="0 0 512 512"
+                    x="0px"
+                    y="0px"
+                    id="svg-6507"
+                    style={{ enableBackground: "new 0 0 512 512" }}
+                  >
+                    <g>
+                      <g>
+                        <path d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792    H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z    "></path>
+                      </g>
+                    </g>
+                  </svg>
+                </span>
               </div>
-            </form>
-            <ul class="actions">
-              <li><input type="submit" value="Send Message" /></li>
-            </ul>
-          </div>
-          <div class="col-4 col-12-small">
-            <ul class="labeled-icons">
-              <li>
-                <h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-                1234 Somewhere Rd.<br />
-                Nashville, TN 00000<br />
-                United States
-              </li>
-              <li>
-                <h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-                000-000-0000
-              </li>
-              <li>
-                <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-                <a href="#">hello@untitled.tld</a>
-              </li>
-            </ul>
+            </div>
+            <div
+              className="u-container-style u-image u-layout-cell u-right-cell u-size-28-lg u-size-28-md u-size-28-sm u-size-28-xs u-size-32-xl u-image-1"
+              style={{
+                backgroundImage: `url(${data.background_image})`
+              }}
+            >
+              <div className="u-container-layout u-container-layout-2"></div>
+            </div>
           </div>
         </div>
-      </section> */}
-        {/* <footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer> */}
-
-        {/* <script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script> */}
       </div>
-    </div>
+    </section>
   );
 }
